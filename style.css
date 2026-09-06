@@ -1,74 +1,1458 @@
+```css
+/* =========================================================
+   RESET
+========================================================= */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* ======== ESTILO BASE DO SITE ======== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif;   /* Fonte padrão usada em toda a página */
-  background-color: #f4f4f4;        /* Cor de fundo cinza claro */
-  margin: 0;                        /* Remove a margem padrão do navegador */
-  padding: 0;                       /* Remove o espaçamento interno padrão */
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--gradiente-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* ======== CONTAINER PRINCIPAL ======== */
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+  --cor-fundo: #071426;
+  --cor-fundo-secundario: #0d1f3a;
+  --cor-container: #101e35;
+
+  --cor-card: #142744;
+  --cor-card-hover: #1a3153;
+
+  --cor-primaria: #3388ff;
+  --cor-secundaria: #7457e8;
+  --cor-destaque: #2bd9c5;
+
+  --cor-titulo: #f4f8ff;
+  --cor-texto: #d8e4f4;
+  --cor-texto-secundario: #91a8c5;
+
+  --cor-borda: #294a72;
+  --cor-borda-suave: #1c385d;
+
+  --cor-link-hover: #83f2e1;
+
+  --cor-destaque-transparente: #2bd9c51f;
+
+  --cor-sombra: #020817;
+
+  --sombra-container: 0 28px 70px #020817;
+  --sombra-card: 0 12px 28px #061124;
+  --sombra-destaque: 0 0 26px #3388ff55;
+
+  --gradiente-fundo:
+    linear-gradient(
+      135deg,
+      #071426 0%,
+      #0d1f3a 52%,
+      #17153d 100%
+    );
+
+  --gradiente-cabecalho:
+    linear-gradient(
+      135deg,
+      #142744 0%,
+      #1d2853 52%,
+      #183e59 100%
+    );
+
+  --gradiente-titulo:
+    linear-gradient(
+      90deg,
+      #3388ff,
+      #7457e8,
+      #2bd9c5
+    );
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+========================================================= */
+
 .container {
-  max-width: 900px;                 /* Largura máxima do currículo = 900px */
-  margin: 40px auto;                /* 40px em cima/baixo + auto nas laterais -> centraliza no meio */
-  background: #fff;                 /* Fundo branco dentro do cartão */
-  padding: 30px;                    /* Espaço interno para afastar o texto da borda */
-  box-shadow: 0 4px 10px rgba(0,0,0,.1); /* Sombra leve embaixo do container */
-  border-radius: 10px;              /* Bordas arredondadas */
+  width: min(1150px, calc(100% - 32px));
+  margin: 30px auto;
+  padding: 28px;
+
+  background: rgba(16, 30, 53, 0.92);
+
+  border: 1px solid var(--cor-borda-suave);
+  border-radius: 24px;
+
+  box-shadow: var(--sombra-container);
+
+  overflow: hidden;
 }
 
-/* ======== CABEÇALHO (foto + nome + contatos) ======== */
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
 .header {
-  text-align: center;               /* Centraliza todo o conteúdo dentro do cabeçalho */
-  margin-bottom: 20px;              /* Espaço abaixo do cabeçalho */
+  position: relative;
+
+  text-align: center;
+
+  padding: 45px 25px;
+
+  border-radius: 20px;
+
+  background: var(--gradiente-cabecalho);
+
+  border: 1px solid var(--cor-borda);
+
+  overflow: hidden;
+
+  margin-bottom: 22px;
 }
 
-/* Estilo da foto do perfil */
-.header img {
-  width: 150px;                     /* Largura da foto */
-  height: 150px;                    /* Altura da foto */
-  object-fit: cover;                /* Mantém a proporção da foto sem distorcer */
-  border-radius: 50%;               /* Transforma a foto em um círculo */
-  border: 3px solid #2b6cb0;        /* Borda azul ao redor da foto */
+.header::before,
+.header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: rgba(51, 136, 255, 0.08);
+
+  pointer-events: none;
 }
 
-/* Nome principal (H1) */
+.header::before {
+  top: -80px;
+  left: -60px;
+}
+
+.header::after {
+  right: -70px;
+  bottom: -90px;
+
+  background: rgba(43, 217, 197, 0.07);
+}
+
+.profile-img {
+  position: relative;
+
+  width: 125px;
+  height: 125px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 4px solid var(--cor-destaque);
+
+  box-shadow: 0 0 30px rgba(43, 217, 197, 0.25);
+
+  margin-bottom: 18px;
+
+  transition: 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
 .header h1 {
-  margin: 15px 0 5px;               /* Espaço em cima (15px), embaixo (5px) */
-  color: #2b6cb0;                   /* Cor azul do título */
+  position: relative;
+
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  margin-bottom: 8px;
+
+  background: var(--gradiente-titulo);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
 }
 
-/* Informações do cabeçalho (idade, cidade, contato) */
 .header p {
-  margin: 2px 0;                    /* Espaçamento pequeno entre as linhas */
-  color: #555;                      /* Cor cinza escuro para o texto */
+  position: relative;
+
+  margin: 6px 0;
+
+  color: var(--cor-texto);
 }
 
-/* ======== TÍTULOS DE SEÇÃO (H2) ======== */
-    h2 {
-    color: #2b6cb0;                   /* Cor azul do título */
-    border-bottom: 2px solid #2b6cb0; /* Linha azul logo abaixo do título */
-    padding-bottom: 5px;              /* Espaço entre o texto e a linha */
-    margin-top: 30px;                 /* Espaço acima de cada seção */
+.header .subtitle {
+  font-size: 1.15rem;
+  font-weight: bold;
+
+  color: var(--cor-destaque);
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.social-links {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 18px;
+
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  text-decoration: none;
+
+  color: white;
+
+  background: rgba(51, 136, 255, 0.12);
+
+  border: 1px solid var(--cor-borda);
+
+  padding: 9px 18px;
+
+  border-radius: 999px;
+
+  transition: 0.25s ease;
+}
+
+.social-links a:hover {
+  background: var(--cor-primaria);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 18px rgba(51, 136, 255, 0.25);
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.menu {
+  position: sticky;
+
+  top: 12px;
+
+  z-index: 50;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  margin: 0 0 30px;
+
+  padding: 10px;
+
+  background: rgba(7, 20, 38, 0.92);
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid var(--cor-borda-suave);
+
+  border-radius: 15px;
+}
+
+.menu button {
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  color: var(--cor-texto);
+
+  padding: 10px 15px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 0.92rem;
+
+  transition: 0.25s ease;
+}
+
+.menu button:hover {
+  background: var(--cor-card);
+
+  border-color: var(--cor-borda);
+
+  color: var(--cor-destaque);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.secao {
+  scroll-margin-top: 90px;
+
+  margin-bottom: 42px;
+}
+
+.secao:last-of-type {
+  margin-bottom: 25px;
+}
+
+.secao > h2,
+.card > h2 {
+  color: var(--cor-titulo);
+
+  font-size: 1.65rem;
+
+  margin-bottom: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.secao > h2::after,
+.card > h2::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  margin-left: 8px;
+
+  background: linear-gradient(
+    90deg,
+    var(--cor-borda),
+    transparent
+  );
+}
+
+
+/* =========================================================
+   CARD BASE
+========================================================= */
+
+.card {
+  background: var(--cor-card);
+
+  border: 1px solid var(--cor-borda);
+
+  border-radius: 17px;
+
+  padding: 24px;
+
+  margin-bottom: 25px;
+
+  box-shadow: var(--sombra-card);
+}
+
+.card p {
+  color: var(--cor-texto);
+
+  margin-bottom: 10px;
+}
+
+.card ul {
+  margin-top: 14px;
+
+  padding-left: 20px;
+}
+
+.card li {
+  margin: 7px 0;
+}
+
+
+/* =========================================================
+   DESTAQUE
+========================================================= */
+
+.destaque {
+  border-color: rgba(51, 136, 255, 0.5);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(51, 136, 255, 0.12),
+      rgba(116, 87, 232, 0.08),
+      rgba(43, 217, 197, 0.06)
+    );
+
+  box-shadow: var(--sombra-destaque);
+}
+
+
+/* =========================================================
+   GRIDS
+========================================================= */
+
+.card-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARDS DE INFORMAÇÃO
+========================================================= */
+
+.info-card,
+.skill-card,
+.project-card,
+.qualification-card,
+.tech-card {
+  min-width: 0;
+
+  background: var(--cor-card);
+
+  border: 1px solid var(--cor-borda-suave);
+
+  border-radius: 16px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.info-card {
+  padding: 22px;
+}
+
+.info-card:hover,
+.skill-card:hover,
+.project-card:hover,
+.qualification-card:hover,
+.tech-card:hover {
+  transform: translateY(-5px);
+
+  background: var(--cor-card-hover);
+
+  border-color: var(--cor-primaria);
+
+  box-shadow: 0 12px 28px rgba(2, 8, 23, 0.5);
+}
+
+.info-card .icon {
+  display: block;
+
+  font-size: 2rem;
+
+  margin-bottom: 12px;
+}
+
+.info-card h3,
+.skill-card h3,
+.project-card h3 {
+  color: var(--cor-titulo);
+
+  margin-bottom: 8px;
+
+  font-size: 1.1rem;
+}
+
+.info-card p,
+.skill-card p,
+.project-card p {
+  color: var(--cor-texto-secundario);
+
+  font-size: 0.94rem;
+}
+
+
+/* =========================================================
+   PROJETOS
+========================================================= */
+
+.project-card {
+  position: relative;
+
+  padding: 22px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 250px;
+}
+
+.project-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(51, 136, 255, 0.12);
+
+  border: 1px solid var(--cor-borda);
+
+  font-size: 1.6rem;
+
+  margin-bottom: 15px;
+}
+
+.project-card p {
+  flex: 1;
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-bottom: 16px;
+}
+
+.tags span {
+  font-size: 0.75rem;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  color: var(--cor-destaque);
+
+  background: rgba(43, 217, 197, 0.08);
+
+  border: 1px solid rgba(43, 217, 197, 0.25);
+}
+
+
+/* =========================================================
+   BOTÕES DE PROJETO
+========================================================= */
+
+.project-card button {
+  width: 100%;
+
+  border: 1px solid var(--cor-borda);
+
+  background: rgba(51, 136, 255, 0.1);
+
+  color: var(--cor-titulo);
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.project-card button:hover {
+  background: var(--cor-primaria);
+
+  border-color: var(--cor-primaria);
+
+  color: white;
+}
+
+
+/* =========================================================
+   TECNOLOGIAS
+========================================================= */
+
+.tech-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.tech-card {
+  min-height: 95px;
+
+  padding: 17px;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  color: var(--cor-texto);
+}
+
+.tech-card strong {
+  display: block;
+
+  color: var(--cor-titulo);
+
+  margin-bottom: 5px;
+}
+
+.tech-card small {
+  color: var(--cor-texto-secundario);
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skill-card {
+  padding: 21px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   QUALIFICAÇÕES
+========================================================= */
+
+.qualification-card {
+  min-height: 75px;
+
+  padding: 18px;
+
+  color: var(--cor-titulo);
+
+  font-size: 0.95rem;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   FERRAMENTAS
+========================================================= */
+
+.tools {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.tools span {
+  padding: 9px 14px;
+
+  background: var(--cor-card);
+
+  border: 1px solid var(--cor-borda);
+
+  border-radius: 999px;
+
+  color: var(--cor-texto);
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.tools span:hover {
+  color: var(--cor-destaque);
+
+  border-color: var(--cor-destaque);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ÁREAS DE INTERESSE
+========================================================= */
+
+.interest-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.interest-grid button {
+  min-height: 55px;
+
+  border: 1px solid var(--cor-borda-suave);
+
+  background: var(--cor-card);
+
+  color: var(--cor-texto);
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  padding: 10px;
+
+  transition: 0.25s ease;
+}
+
+.interest-grid button:hover {
+  background: var(--cor-card-hover);
+
+  border-color: var(--cor-secundaria);
+
+  color: white;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contact {
+  text-align: center;
+
+  margin-top: 35px;
+
+  padding: 30px;
+}
+
+.contact p {
+  max-width: 700px;
+
+  margin: 0 auto 20px;
+}
+
+.contact-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.contact-buttons a {
+  text-decoration: none;
+
+  color: white;
+
+  background: var(--cor-primaria);
+
+  padding: 11px 18px;
+
+  border-radius: 10px;
+
+  transition: 0.25s ease;
+}
+
+.contact-buttons a:hover {
+  transform: translateY(-3px);
+
+  background: var(--cor-secundaria);
+
+  box-shadow: 0 8px 20px rgba(116, 87, 232, 0.25);
+}
+
+
+/* =========================================================
+   MODAL / JANELINHA
+========================================================= */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(2, 8, 23, 0.78);
+
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.modal.ativo {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+.modal-content {
+  position: relative;
+
+  width: min(550px, 100%);
+
+  max-height: 80vh;
+
+  overflow-y: auto;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #142744,
+      #101e35
+    );
+
+  border: 1px solid var(--cor-borda);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(51, 136, 255, 0.12);
+
+  transform: translateY(20px) scale(0.96);
+
+  transition: transform 0.25s ease;
+}
+
+.modal.ativo .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-content h2 {
+  color: var(--cor-titulo);
+
+  font-size: 1.5rem;
+
+  margin-bottom: 15px;
+
+  padding-right: 35px;
+}
+
+.modal-content p {
+  color: var(--cor-texto);
+
+  line-height: 1.8;
+}
+
+.close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid var(--cor-borda);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: var(--cor-texto);
+
+  font-size: 1.5rem;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.close:hover {
+  background: #e74c3c;
+
+  color: white;
+
+  border-color: #e74c3c;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  text-align: center;
+
+  margin-top: 35px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid var(--cor-borda-suave);
+
+  color: var(--cor-texto-secundario);
+
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 4px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .tech-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .interest-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 750px) {
+
+  .container {
+    width: min(100% - 20px, 650px);
+
+    padding: 15px;
+
+    margin: 10px auto;
+
+    border-radius: 18px;
+  }
+
+  .header {
+    padding: 35px 18px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .interest-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu {
+    position: relative;
+
+    top: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .container {
+    width: calc(100% - 12px);
+
+    padding: 10px;
+
+    margin: 6px auto;
+  }
+
+  .header {
+    padding: 28px 12px;
+  }
+
+  .profile-img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .menu {
+    gap: 5px;
+
+    padding: 7px;
+  }
+
+  .menu button {
+    padding: 8px 10px;
+
+    font-size: 0.8rem;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .interest-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .modal-content {
+    padding: 24px 20px;
+  }
+}
+
+
+@media (max-width: 350px) {
+
+  .tech-grid,
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-buttons a {
+    width: 100%;
+  }
+}
+```
+
+Agora vem a parte que vai fazer **os cards realmente funcionarem**.
+
+No seu HTML, **apague o `<script>...</script>` que está no final** e coloque este no lugar:
+
+```html
+<script>
+
+/* =========================================================
+   NAVEGAÇÃO DO MENU
+========================================================= */
+
+function mostrarSecao(id) {
+
+  const secao = document.getElementById(id);
+
+  if (secao) {
+    secao.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+}
+
+
+/* =========================================================
+   ABRIR MODAL
+========================================================= */
+
+function abrirModal(titulo, texto) {
+
+  const modal = document.getElementById("modal");
+  const modalTitulo = document.getElementById("modalTitulo");
+  const modalTexto = document.getElementById("modalTexto");
+
+  modalTitulo.textContent = titulo;
+  modalTexto.textContent = texto;
+
+  modal.classList.add("ativo");
+
+  document.body.style.overflow = "hidden";
+}
+
+
+/* =========================================================
+   FECHAR MODAL
+========================================================= */
+
+function fecharModal() {
+
+  const modal = document.getElementById("modal");
+
+  modal.classList.remove("ativo");
+
+  document.body.style.overflow = "";
+
+}
+
+
+/* =========================================================
+   PROJETOS
+========================================================= */
+
+function abrirProjeto(titulo, texto) {
+
+  abrirModal(
+    "🚀 " + titulo,
+    texto
+  );
+
+}
+
+
+/* =========================================================
+   MENSAGEM GENÉRICA
+========================================================= */
+
+function mostrarMensagem(mensagem) {
+
+  abrirModal(
+    "💡 Conhecimento",
+    "Tenho experiência prática com " + mensagem + "."
+  );
+
+}
+
+
+/* =========================================================
+   TRANSFORMAR OS CARDS EM CLICÁVEIS
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* -------------------------
+     CARDS DE INFORMAÇÃO
+  ------------------------- */
+
+  document.querySelectorAll(".info-card").forEach(card => {
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", function () {
+
+      const titulo =
+        card.querySelector("h3")?.textContent ||
+        "Informação";
+
+      const texto =
+        card.querySelector("p")?.textContent ||
+        "Informação sobre meu perfil.";
+
+      abrirModal(
+        titulo,
+        texto
+      );
+
+    });
+
+  });
+
+
+  /* -------------------------
+     CARDS DE SKILLS
+  ------------------------- */
+
+  document.querySelectorAll(".skill-card").forEach(card => {
+
+    card.addEventListener("click", function () {
+
+      const titulo =
+        card.querySelector("h3")?.textContent ||
+        "Skill";
+
+      const texto =
+        card.querySelector("p")?.textContent ||
+        "Conhecimento relacionado ao desenvolvimento de software.";
+
+      abrirModal(
+        titulo,
+        texto
+      );
+
+    });
+
+  });
+
+
+  /* -------------------------
+     CARDS DE TECNOLOGIA
+  ------------------------- */
+
+  document.querySelectorAll(".tech-card").forEach(card => {
+
+    card.addEventListener("click", function () {
+
+      const tecnologia =
+        card.querySelector("strong")?.textContent ||
+        "Tecnologia";
+
+      const descricao =
+        card.querySelector("small")?.textContent ||
+        "Tecnologia utilizada no desenvolvimento.";
+
+      abrirModal(
+        "💻 " + tecnologia,
+        "Tecnologia que utilizo nos meus estudos e projetos. Área: " + descricao + "."
+      );
+
+    });
+
+  });
+
+
+  /* -------------------------
+     QUALIFICAÇÕES
+  ------------------------- */
+
+  document.querySelectorAll(".qualification-card").forEach(card => {
+
+    card.addEventListener("click", function () {
+
+      const texto =
+        card.textContent.trim();
+
+      abrirModal(
+        "🛠️ " + texto,
+        "Essa é uma das habilidades que desenvolvo durante minha formação e meus projetos de programação."
+      );
+
+    });
+
+  });
+
+
+  /* -------------------------
+     FERRAMENTAS
+  ------------------------- */
+
+  document.querySelectorAll(".tools span").forEach(tool => {
+
+    tool.addEventListener("click", function () {
+
+      const nome =
+        tool.textContent.trim();
+
+      abrirModal(
+        "🔧 " + nome,
+        "Ferramenta que faz parte do meu ambiente de desenvolvimento e/ou dos meus projetos."
+      );
+
+    });
+
+  });
+
+
+  /* -------------------------
+     ÁREAS DE INTERESSE
+  ------------------------- */
+
+  document.querySelectorAll(".interest-grid button").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+      const area =
+        button.textContent.trim();
+
+      abrirModal(
+        "🚀 " + area,
+        "Área de interesse profissional que quero continuar estudando e desenvolvendo."
+      );
+
+    });
+
+  });
+
+
+  /* -------------------------
+     CARD DE FORMAÇÃO
+  ------------------------- */
+
+  document.querySelectorAll("#formacao .card").forEach(card => {
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", function (event) {
+
+      /*
+        Não abre duas janelas caso o usuário clique
+        em algum elemento interativo dentro do card.
+      */
+
+      if (event.target.closest("button, a")) {
+        return;
+      }
+
+      const titulo =
+        card.querySelector("h3")?.textContent ||
+        "Formação";
+
+      const texto = `
+Formação: ${titulo}
+
+Curso técnico em Desenvolvimento de Sistemas.
+
+Período: 2024 – 2026.
+
+Durante a formação estudo programação, desenvolvimento Web, banco de dados, engenharia de software, testes e desenvolvimento de projetos.
+      `;
+
+      abrirModal(
+        "🎓 Formação",
+        texto
+      );
+
+    });
+
+  });
+
+
+  /* -------------------------
+     PROJETOS
+  ------------------------- */
+
+  document.querySelectorAll(".project-card").forEach(card => {
+
+    /*
+      O botão já possui sua própria função.
+      Por isso o card inteiro também pode abrir,
+      mas não quando o clique for no botão.
+    */
+
+    card.addEventListener("click", function (event) {
+
+      if (event.target.closest("button")) {
+        return;
+      }
+
+      const titulo =
+        card.querySelector("h3")?.textContent ||
+        "Projeto";
+
+      const descricao =
+        card.querySelector("p")?.textContent ||
+        "Projeto desenvolvido durante minha formação.";
+
+      abrirModal(
+        "🚀 " + titulo,
+        descricao
+      );
+
+    });
+
+  });
+
+
+  /* =====================================================
+     FECHAR MODAL CLICANDO FORA
+  ===================================================== */
+
+  const modal =
+    document.getElementById("modal");
+
+  modal.addEventListener("click", function (event) {
+
+    if (event.target === modal) {
+      fecharModal();
     }
 
-    /* ======== TEXTO (parágrafos e itens de lista) ======== */
-    p,
-    li {
-    text-align: justify;              /* Texto justificado (alinha dos dois lados) */
-  line-height: 1.6;                 /* Aumenta o espaçamento entre linhas -> melhora leitura */
-}
+  });
 
-/* ======== LISTAS ======== */
-ul {
-  list-style: none;                 /* Remove os marcadores padrão (bolinha preta) */
-  padding: 0;                       /* Remove espaçamento interno da lista */
-}
+});
 
-/* Criação de marcadores personalizados */
-ul li::before {
-  content: "• ";                    /* Insere uma bolinha manualmente antes de cada item */
-  color: #2b6cb0;                   /* Define a cor da bolinha (azul) */
-  font-weight: bold;                /* Deixa a bolinha mais grossa/forte */
-}
+
+/* =========================================================
+   ESC FECHA A JANELA
+========================================================= */
+
+document.addEventListener("keydown", function (event) {
+
+  if (event.key === "Escape") {
+    fecharModal();
+  }
+
+});
+
+</script>
+```
+
+### O resultado vai ficar assim
+
+Você clica, por exemplo, em:
+
+**⚛️ React**
+
+→ abre uma janelinha:
+
+> **💻 React**
+> Tecnologia que utilizo nos meus estudos e projetos. Área: Front-end.
+
+Clica em:
+
+**🧠 Lógica de Programação**
+
+→ abre:
+
+> **🧩 Lógica de Programação**
+> Desenvolvimento de algoritmos, raciocínio lógico e resolução de problemas.
+
+Clica em:
+
+**🚗 Jet Wash**
+
+→ abre a descrição do projeto.
+
+Clica em:
+
+**GitHub**
+
+→ continua sendo link normalmente.
+
+E o mais importante: **não vai ficar cada coisa com um espaçamento diferente**. Os cards passam a seguir uma grade e um padrão único de `gap`, `padding`, altura e margem.
+
+Se quiser deixar ainda mais daora depois, dá para fazer a janelinha mostrar **ícone + tecnologias + descrição + botão "Ver GitHub"**, em vez de ser só texto.

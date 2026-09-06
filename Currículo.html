@@ -1,205 +1,956 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
 <title>Ivan Carlos Evangelista - Desenvolvedor</title>
+
 <link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
 <div class="container">
 
-<!-- Cabeçalho -->
-<div class="header">
-<img src="https://media1.tenor.com/m/pYFSLWzMD-kAAAAd/dragonballz.gif" alt="Foto de perfil">
+```
+<!-- ==================== CABEÇALHO ==================== -->
 
-<h1>Ivan Carlos Evangelista</h1>
+<header class="header">
 
-<p>Desenvolvedor em formação | 18 anos</p>
+    <img
+        src="https://media1.tenor.com/m/pYFSLWzMD-kAAAAd/dragonballz.gif"
+        alt="Foto de perfil"
+        class="profile-img"
+    >
 
-<p>Recife – PE | Brasil</p>
+    <h1>Ivan Carlos Evangelista</h1>
 
-<p>📞 (81) 98902-1739 | ✉ ice.dev.2025@gmail.com</p>
+    <p class="subtitle">
+        Desenvolvedor de Software em Formação
+    </p>
 
-<p>
-<a href="https://www.linkedin.com/in/ivan-carlos-234251327/">LinkedIn</a> |
-<a href="https://github.com/ivanzhsds">GitHub</a>
-</p>
+    <p>
+        19 anos • Recife – PE • Brasil
+    </p>
+
+    <p>
+        📞 (81) 98902-1739 |
+        ✉ ice.dev.2025@gmail.com
+    </p>
+
+    <div class="social-links">
+
+        <a
+            href="https://www.linkedin.com/in/ivan-carlos-234251327/"
+            target="_blank"
+        >
+            LinkedIn
+        </a>
+
+        <a
+            href="https://github.com/ivanzhsds"
+            target="_blank"
+        >
+            GitHub
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ==================== MENU ==================== -->
+
+<nav class="menu">
+
+    <button onclick="mostrarSecao('sobre')">
+        👨‍💻 Sobre mim
+    </button>
+
+    <button onclick="mostrarSecao('projetos')">
+        🚀 Projetos
+    </button>
+
+    <button onclick="mostrarSecao('tecnologias')">
+        💻 Tecnologias
+    </button>
+
+    <button onclick="mostrarSecao('skills')">
+        🧠 Skills
+    </button>
+
+    <button onclick="mostrarSecao('formacao')">
+        🎓 Formação
+    </button>
+
+</nav>
+
+
+<!-- ==================== OBJETIVO ==================== -->
+
+<section class="card destaque">
+
+    <h2>🎯 Objetivo</h2>
+
+    <p>
+        Atuar na área de desenvolvimento de software, contribuindo
+        em projetos reais e evoluindo continuamente minhas habilidades
+        técnicas.
+    </p>
+
+    <p>
+        Tenho interesse principalmente em desenvolvimento Web e Full Stack,
+        desenvolvimento de aplicações, PWAs, integração com bancos de dados
+        e criação de soluções digitais.
+    </p>
+
+</section>
+
+
+<!-- ==================== SOBRE ==================== -->
+
+<section id="sobre" class="secao">
+
+    <h2>👨‍💻 Sobre mim</h2>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+
+            <span class="icon">🌐</span>
+
+            <h3>Desenvolvimento Web</h3>
+
+            <p>
+                Experiência prática criando páginas e aplicações
+                utilizando HTML, CSS, JavaScript, React e Vite.
+            </p>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <span class="icon">📱</span>
+
+            <h3>Desenvolvimento Mobile</h3>
+
+            <p>
+                Conhecimentos em React Native e Expo para criação
+                e estruturação de aplicações mobile.
+            </p>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <span class="icon">🗄️</span>
+
+            <h3>Banco de Dados</h3>
+
+            <p>
+                Experiência com SQL, SQLite e Supabase,
+                incluindo integração entre aplicações e banco de dados.
+            </p>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <span class="icon">🔧</span>
+
+            <h3>Resolução de problemas</h3>
+
+            <p>
+                Experiência investigando erros de código,
+                identificando problemas e buscando soluções.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== FORMAÇÃO ==================== -->
+
+<section id="formacao" class="secao">
+
+    <h2>🎓 Formação</h2>
+
+    <div class="card">
+
+        <h3>
+            Técnico em Desenvolvimento de Sistemas
+        </h3>
+
+        <p>
+            <strong>SENAC / Mediotec</strong>
+        </p>
+
+        <p>
+            2024 – 2026 • Em andamento
+        </p>
+
+        <ul>
+
+            <li>Desenvolvimento Web</li>
+
+            <li>Programação</li>
+
+            <li>Banco de Dados</li>
+
+            <li>Engenharia de Software</li>
+
+            <li>Modelagem de Sistemas</li>
+
+            <li>Testes de Software</li>
+
+            <li>Desenvolvimento de Projetos</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== PROJETOS ==================== -->
+
+<section id="projetos" class="secao">
+
+    <h2>🚀 Projetos</h2>
+
+    <div class="card-grid">
+
+
+        <!-- Jet Wash -->
+
+        <article class="project-card">
+
+            <div class="project-icon">
+                🚗
+            </div>
+
+            <h3>Jet Wash</h3>
+
+            <p>
+                Sistema para gerenciamento de serviços de um lava-jato.
+            </p>
+
+            <div class="tags">
+
+                <span>React</span>
+                <span>Vite</span>
+                <span>Supabase</span>
+                <span>PWA</span>
+
+            </div>
+
+            <button
+                onclick="abrirProjeto(
+                    'Jet Wash',
+                    'Sistema Web/PWA para gerenciamento de lava-jato. Possui agendamentos, serviços em andamento, histórico, serviços finalizados, faturamento, ações rápidas, rotas e integração com banco de dados através do Supabase.'
+                )"
+            >
+                Ver projeto →
+            </button>
+
+        </article>
+
+
+        <!-- SafeRMR -->
+
+        <article class="project-card">
+
+            <div class="project-icon">
+                🌧️
+            </div>
+
+            <h3>SafeRMR</h3>
+
+            <p>
+                Projeto voltado para riscos climáticos na Região
+                Metropolitana do Recife.
+            </p>
+
+            <div class="tags">
+
+                <span>React</span>
+                <span>PWA</span>
+                <span>Figma</span>
+
+            </div>
+
+            <button
+                onclick="abrirProjeto(
+                    'SafeRMR',
+                    'Aplicação voltada para informações e gerenciamento de riscos relacionados a eventos climáticos. A proposta envolve alertas, informações meteorológicas, mapas de risco e contatos de emergência.'
+                )"
+            >
+                Ver projeto →
+            </button>
+
+        </article>
+
+
+        <!-- Cuida+ -->
+
+        <article class="project-card">
+
+            <div class="project-icon">
+                ❤️
+            </div>
+
+            <h3>Cuida+</h3>
+
+            <p>
+                Aplicação voltada para organização e acompanhamento
+                de informações de saúde.
+            </p>
+
+            <div class="tags">
+
+                <span>React</span>
+                <span>Supabase</span>
+                <span>Figma</span>
+
+            </div>
+
+            <button
+                onclick="abrirProjeto(
+                    'Cuida+',
+                    'Projeto desenvolvido trabalhando principalmente na interface e estrutura da aplicação, incluindo telas de Login e Cadastro, integração com Supabase, autenticação e organização das interfaces.'
+                )"
+            >
+                Ver projeto →
+            </button>
+
+        </article>
+
+
+        <!-- Calculadora -->
+
+        <article class="project-card">
+
+            <div class="project-icon">
+                🧮
+            </div>
+
+            <h3>Calculadora de Média</h3>
+
+            <p>
+                Aplicação Web para cálculo de médias escolares.
+            </p>
+
+            <div class="tags">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+
+            </div>
+
+            <button
+                onclick="abrirProjeto(
+                    'Calculadora de Média',
+                    'Aplicação que recebe notas, realiza cálculos utilizando JavaScript e apresenta a situação do aluno.'
+                )"
+            >
+                Ver projeto →
+            </button>
+
+        </article>
+
+
+        <!-- Chatbot -->
+
+        <article class="project-card">
+
+            <div class="project-icon">
+                🤖
+            </div>
+
+            <h3>Chatbot Informativo</h3>
+
+            <p>
+                Projeto educacional de chatbot interativo.
+            </p>
+
+            <div class="tags">
+
+                <span>JavaScript</span>
+                <span>HTML</span>
+                <span>CSS</span>
+
+            </div>
+
+            <button
+                onclick="abrirProjeto(
+                    'Chatbot Informativo',
+                    'Projeto educacional desenvolvido para fornecer informações de maneira interativa através de uma interface Web.'
+                )"
+            >
+                Ver projeto →
+            </button>
+
+        </article>
+
+
+        <!-- Rede Social -->
+
+        <article class="project-card">
+
+            <div class="project-icon">
+                ♿
+            </div>
+
+            <h3>Rede Social Inclusiva</h3>
+
+            <p>
+                Protótipo de rede social com foco em acessibilidade.
+            </p>
+
+            <div class="tags">
+
+                <span>Figma</span>
+                <span>UI</span>
+                <span>Acessibilidade</span>
+
+            </div>
+
+            <button
+                onclick="abrirProjeto(
+                    'Rede Social Inclusiva',
+                    'Protótipo de interface desenvolvido com foco em acessibilidade e inclusão.'
+                )"
+            >
+                Ver projeto →
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== TECNOLOGIAS ==================== -->
+
+<section id="tecnologias" class="secao">
+
+    <h2>💻 Tecnologias</h2>
+
+    <div class="tech-grid">
+
+        <button class="tech-card">
+            <strong>HTML5</strong>
+            <small>Estrutura Web</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>CSS3</strong>
+            <small>Interfaces</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>JavaScript</strong>
+            <small>Lógica e interação</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>React</strong>
+            <small>Front-end</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>React Native</strong>
+            <small>Mobile</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>Vite</strong>
+            <small>Build / desenvolvimento</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>Expo</strong>
+            <small>React Native</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>Java</strong>
+            <small>POO</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>SQL</strong>
+            <small>Banco de dados</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>SQLite</strong>
+            <small>Banco de dados</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>Supabase</strong>
+            <small>Backend / Database</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>Git</strong>
+            <small>Versionamento</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>GitHub</strong>
+            <small>Repositórios</small>
+        </button>
+
+        <button class="tech-card">
+            <strong>JSON</strong>
+            <small>Dados</small>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== SKILLS ==================== -->
+
+<section id="skills" class="secao">
+
+    <h2>🧠 Skills</h2>
+
+    <div class="card-grid">
+
+        <article class="skill-card">
+
+            <h3>🧩 Lógica de Programação</h3>
+
+            <p>
+                Desenvolvimento de algoritmos, raciocínio lógico
+                e resolução de problemas.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card">
+
+            <h3>⚛️ Componentização</h3>
+
+            <p>
+                Organização de interfaces utilizando componentes
+                reutilizáveis.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card">
+
+            <h3>🔀 Roteamento</h3>
+
+            <p>
+                Estruturação de aplicações com múltiplas páginas
+                e rotas.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card">
+
+            <h3>🗃️ CRUD</h3>
+
+            <p>
+                Conhecimentos em operações de criação, leitura,
+                atualização e exclusão de dados.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card">
+
+            <h3>🔍 Debug</h3>
+
+            <p>
+                Investigação de erros e identificação de problemas
+                durante o desenvolvimento.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card">
+
+            <h3>🔧 Git</h3>
+
+            <p>
+                Commits, branches, push, pull, repositórios
+                e organização de versões.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card">
+
+            <h3>🎨 UI / Interface</h3>
+
+            <p>
+                Criação e adaptação de interfaces utilizando
+                Figma e tecnologias Web.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card">
+
+            <h3>📲 PWA</h3>
+
+            <p>
+                Estruturação de aplicações Web com características
+                de Progressive Web App.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== QUALIFICAÇÕES ==================== -->
+
+<section class="secao">
+
+    <h2>🛠️ O que eu sei fazer</h2>
+
+    <div class="card-grid">
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Criar interfaces Web')">
+
+            🌐
+            <strong>Criar interfaces Web</strong>
+
+        </button>
+
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Criar aplicações com React')">
+
+            ⚛️
+            <strong>Desenvolver com React</strong>
+
+        </button>
+
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Trabalhar com bancos de dados')">
+
+            🗄️
+            <strong>Trabalhar com Banco de Dados</strong>
+
+        </button>
+
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Criar aplicações PWA')">
+
+            📱
+            <strong>Criar PWAs</strong>
+
+        </button>
+
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Utilizar Git e GitHub')">
+
+            🔀
+            <strong>Versionar projetos</strong>
+
+        </button>
+
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Investigar e corrigir erros')">
+
+            🐛
+            <strong>Debuggar aplicações</strong>
+
+        </button>
+
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Criar protótipos no Figma')">
+
+            🎨
+            <strong>Prototipar interfaces</strong>
+
+        </button>
+
+
+        <button class="qualification-card"
+                onclick="mostrarMensagem('Desenvolver soluções utilizando lógica')">
+
+            🧠
+            <strong>Resolver problemas</strong>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== FERRAMENTAS ==================== -->
+
+<section class="secao">
+
+    <h2>🔧 Ferramentas</h2>
+
+    <div class="tools">
+
+        <span>VS Code</span>
+
+        <span>GitHub</span>
+
+        <span>GitHub Codespaces</span>
+
+        <span>github.dev</span>
+
+        <span>Figma</span>
+
+        <span>Draw.io</span>
+
+        <span>Canva</span>
+
+        <span>Vite</span>
+
+        <span>Expo</span>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== IDIOMAS ==================== -->
+
+<section class="secao">
+
+    <h2>🌎 Idiomas</h2>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+
+            <h3>🇧🇷 Português</h3>
+
+            <p>Nativo</p>
+
+        </article>
+
+        <article class="info-card">
+
+            <h3>🇺🇸 Inglês</h3>
+
+            <p>
+                Básico — leitura e compreensão de documentação técnica.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== INTERESSES ==================== -->
+
+<section class="secao">
+
+    <h2>🚀 Áreas de interesse</h2>
+
+    <div class="interest-grid">
+
+        <button>Full Stack</button>
+
+        <button>Desenvolvimento Web</button>
+
+        <button>React</button>
+
+        <button>JavaScript</button>
+
+        <button>Mobile</button>
+
+        <button>PWAs</button>
+
+        <button>Backend</button>
+
+        <button>APIs</button>
+
+        <button>Banco de Dados</button>
+
+        <button>Engenharia de Software</button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== CONTATO ==================== -->
+
+<section class="contact card">
+
+    <h2>📩 Vamos conversar?</h2>
+
+    <p>
+        Estou aberto a oportunidades, projetos e experiências
+        que contribuam para meu crescimento como desenvolvedor.
+    </p>
+
+    <div class="contact-buttons">
+
+        <a href="mailto:ice.dev.2025@gmail.com">
+            ✉ Enviar e-mail
+        </a>
+
+        <a
+            href="https://github.com/ivanzhsds"
+            target="_blank"
+        >
+            💻 Ver GitHub
+        </a>
+
+        <a
+            href="https://www.linkedin.com/in/ivan-carlos-234251327/"
+            target="_blank"
+        >
+            🔗 LinkedIn
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== MODAL ==================== -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            onclick="fecharModal()"
+        >
+            ×
+        </button>
+
+        <h2 id="modalTitulo"></h2>
+
+        <p id="modalTexto"></p>
+
+    </div>
 
 </div>
 
-<!-- Objetivo -->
-<h2>Objetivo</h2>
 
-<p>
-Atuar na área de desenvolvimento de software, aplicando conhecimentos em programação,
-desenvolvimento web e lógica computacional. Busco participar de projetos que permitam
-crescimento profissional e evolução técnica como desenvolvedor Full Stack.
-</p>
-
-<!-- Perfil -->
-<h2>Perfil</h2>
-
-<p>
-Desenvolvedor em formação com foco em desenvolvimento web. Possuo experiência com HTML,
-JavaScript, Java e banco de dados, além de conhecimentos em versionamento de código
-utilizando Git e GitHub. Tenho facilidade para aprender novas tecnologias, resolver
-problemas utilizando lógica de programação e desenvolver projetos práticos. Atualmente
-estou aprofundando meus conhecimentos em JavaScript avançado e React.
-</p>
-
-<!-- Formação -->
-<h2>Formação</h2>
-
-<ul>
-
-<li>Técnico em Desenvolvimento de Sistemas – Em andamento (2024 – 2026)</li>
-
-<li>Estudos em desenvolvimento web com HTML, CSS e JavaScript</li>
-
-<li>Programação orientada a objetos utilizando Java</li>
-
-<li>Modelagem e manipulação de banco de dados</li>
-
-</ul>
-
-<!-- Experiência -->
-<h2>Experiência em Desenvolvimento</h2>
-
-<ul>
-
-<li><b>Projetos Acadêmicos</b> – Desenvolvimento de aplicações e exercícios práticos voltados para lógica de programação e desenvolvimento web.</li>
-
-<li><b>Projetos Pessoais</b> – Criação de aplicações para prática de JavaScript, manipulação do DOM e estruturação de páginas web.</li>
-
-</ul>
-
-<!-- Projetos -->
-<h2>Projetos</h2>
-
-<ul>
-
-<li>
-<b>Calculadora de Média Escolar</b> – Aplicação web que calcula médias de notas e exibe a situação do aluno.<br>
-Tecnologias: HTML e JavaScript
-</li>
-
-<li>
-<b>Chatbot Informativo</b> – Projeto educacional com objetivo de fornecer informações sobre prevenção de doenças.
-</li>
-
-<li>
-<b>Protótipo de Rede Social Inclusiva</b> – Interface adaptada para pessoas com síndrome de Down com foco em acessibilidade.
-</li>
-
-<li>
-<b>Projetos Web de Aprendizado</b> – Exercícios e projetos desenvolvidos para aprimorar habilidades em desenvolvimento front-end.
-</li>
-
-</ul>
-
-<!-- Tecnologias -->
-<h2>Tecnologias</h2>
-
-<ul>
-
-<li>HTML5</li>
-
-<li>CSS3</li>
-
-<li>JavaScript</li>
-
-<li>Java</li>
-
-<li>SQL / Banco de Dados</li>
-
-<li>JSON</li>
-
-<li>Git</li>
-
-<li>GitHub</li>
-
-<li>React (em aprendizado)</li>
-
-</ul>
-
-<!-- Skills -->
-<h2>Skills</h2>
-
-<ul>
-
-<li>Desenvolvimento Web</li>
-
-<li>Lógica de Programação</li>
-
-<li>Manipulação do DOM</li>
-
-<li>Programação Orientada a Objetos</li>
-
-<li>Versionamento de Código</li>
-
-<li>Desenvolvimento de Interfaces</li>
-
-</ul>
-
-<!-- Qualificações -->
-<h2>Qualificações</h2>
-
-<ul>
-
-<li>Estruturação de páginas web e criação de interfaces</li>
-
-<li>Manipulação do DOM com JavaScript</li>
-
-<li>Versionamento de código com Git e GitHub</li>
-
-<li>Criação de commits, branches e gerenciamento de repositórios</li>
-
-<li>Utilização do VS Code e github.dev</li>
-
-<li>Resolução de problemas com lógica de programação</li>
-
-<li>Aprendizado rápido de novas tecnologias</li>
-
-</ul>
-
-<!-- Diferenciais -->
-<h2>Diferenciais</h2>
-
-<ul>
-
-<li>Interesse em desenvolvimento Full Stack</li>
-
-<li>Experiência prática com projetos acadêmicos</li>
-
-<li>Organização de código e boas práticas de desenvolvimento</li>
-
-<li>Facilidade em aprender novas tecnologias</li>
-
-</ul>
-
-<!-- Idiomas -->
-<h2>Idiomas</h2>
-
-<ul>
-
-<li>Português – Nativo</li>
-
-<li>Inglês – Básico para leitura técnica</li>
-
-</ul>
+<!-- ==================== RODAPÉ ==================== -->
 
 <footer>
 
-<p>© 2026 Ivan Carlos Evangelista</p>
+    <p>
+        © 2026 Ivan Carlos Evangelista
+    </p>
 
-<p>Desenvolvedor em formação | Portfólio pessoal</p>
+    <p>
+        Desenvolvedor de Software em Formação
+    </p>
 
 </footer>
+```
 
 </div>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+
+<script>
+
+    function mostrarSecao(id) {
+
+        const secao = document.getElementById(id);
+
+        if (secao) {
+
+            secao.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    }
+
+
+    function abrirProjeto(titulo, texto) {
+
+        document.getElementById("modalTitulo").textContent = titulo;
+
+        document.getElementById("modalTexto").textContent = texto;
+
+        document.getElementById("modal").classList.add("ativo");
+
+    }
+
+
+    function fecharModal() {
+
+        document.getElementById("modal").classList.remove("ativo");
+
+    }
+
+
+    function mostrarMensagem(mensagem) {
+
+        document.getElementById("modalTitulo").textContent = "💡 Conhecimento";
+
+        document.getElementById("modalTexto").textContent =
+            "Experiência prática com " + mensagem + ".";
+
+        document.getElementById("modal").classList.add("ativo");
+
+    }
+
+
+    window.onclick = function(event) {
+
+        const modal = document.getElementById("modal");
+
+        if (event.target === modal) {
+
+            fecharModal();
+
+        }
+
+    };
+
+</script>
 
 </body>
 
